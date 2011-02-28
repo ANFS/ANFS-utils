@@ -1,3 +1,14 @@
+			ANFS Branch
+
+This is a branch of the nfs-utils 1.2.3 source code which contains modifications
+to the source code which enable the use of ANFS with an accompanying ANFS kernel
+The kernel component can be found at https://github.com/ANFS/ANFS-kernel
+
+ANFS is a modification to NFSv4 which aims to implement additional features
+including redundancy(RAID 1 like), encryption(RSA and AES), and compression.
+
+
+
 This is version 1.1.0 of nfs-utils, the Linux NFS utility package.
 
 
