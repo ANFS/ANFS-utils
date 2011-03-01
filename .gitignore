@@ -44,6 +44,7 @@ utils/mountd/mountd
 utils/nfsd/nfsd
 utils/nfsstat/nfsstat
 utils/nhfsstone/nhfsstone
+utils/nfs-redundancy/nfs-redundancy
 utils/rquotad/rquotad
 utils/rquotad/rquota.h
 utils/rquotad/rquota_xdr.c
