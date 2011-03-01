@@ -420,6 +420,7 @@ AC_CONFIG_FILES([
 	support/misc/Makefile
 	support/nfs/Makefile
 	support/nsm/Makefile
+	support/redundancy/Makefile
 	tools/Makefile
 	tools/locktest/Makefile
 	tools/nlmtest/Makefile
@@ -435,6 +436,7 @@ AC_CONFIG_FILES([
 	utils/mountd/Makefile
 	utils/nfsd/Makefile
 	utils/nfsstat/Makefile
+	utils/nfs-redundancy/Makefile
 	utils/showmount/Makefile
 	utils/statd/Makefile
 	tests/Makefile

@@ -19,6 +19,7 @@ SUBDIRS = \
 	mountd \
 	nfsd \
 	nfsstat \
+	nfs-redundancy \
 	showmount \
 	statd \
 	$(OPTDIRS)

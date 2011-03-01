@@ -11,6 +11,7 @@ noinst_HEADERS = \
 	nfslib.h \
 	nfsrpc.h \
 	nsm.h \
+	redundancy.h \
 	rpcmisc.h \
 	tcpwrapper.h \
 	xio.h \
