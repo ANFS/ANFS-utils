@@ -86,6 +86,45 @@ AC_ARG_ENABLE(nfsv41,
 	AC_SUBST(enable_nfsv41)
 	AM_CONDITIONAL(CONFIG_NFSV41, [test "$enable_nfsv41" = "yes"])
 
+AC_ARG_ENABLE(redundancy,
+	[AC_HELP_STRING([--enable-redundancy],
+			[enable experimental support for redundancy @<:@default=no@:>@])],
+	enable_redundancy=$enableval,
+	enable_redundancy=no)
+	if test "$enable_redundancy" = yes; then
+		AC_DEFINE(REDUNDACY_SUPPORTED, 1, [Define this if you want experimental redundancy support compiled in])
+	else
+		enable_redundancy=
+	fi
+	AC_SUBST(enable_redundancy)
+	AM_CONDITIONAL(CONFIG_REDUNDANCY, [test "$enable_redundancy" = "yes"])
+
+AC_ARG_ENABLE(compression,
+	[AC_HELP_STRING([--enable-compression],
+			[enable experimental support for compression @<:@default=no@:>@])],
+	enable_compression=$enableval,
+	enable_compression=no)
+	if test "$enable_compression" = yes; then
+		AC_DEFINE(COMPRESSION_SUPPORTED, 1, [Define this if you want experimental compression support compiled in])
+	else
+		enable_compression=
+	fi
+	AC_SUBST(enable_compression)
+	AM_CONDITIONAL(CONFIG_COMPRESSION, [test "$enable_compression" = "yes"])
+
+AC_ARG_ENABLE(encryption,
+	[AC_HELP_STRING([--enable-encryption],
+			[enable experimental support for encryption @<:@default=no@:>@])],
+	enable_encryption=$enableval,
+	enable_encryption=no)
+	if test "$enable_encryption" = yes; then
+		AC_DEFINE(ENCRYPTION_SUPPORTED, 1, [Define this if you want experimental encryption support compiled in])
+	else
+		enable_encryption=
+	fi
+	AC_SUBST(enable_encryption)
+	AM_CONDITIONAL(CONFIG_ENCRYPTION, [test "$enable_encryption" = "yes"])
+
 AC_ARG_ENABLE(gss,
 	[AC_HELP_STRING([--enable-gss],
                         [enable support for rpcsec_gss @<:@default=yes@:>@])],
