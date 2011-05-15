@@ -239,6 +239,10 @@ putexportent(struct exportent *ep)
 	fprintf(fp, "%ssync,", (ep->e_flags & NFSEXP_ASYNC)? "a" : "");
 	fprintf(fp, "%swdelay,", (ep->e_flags & NFSEXP_GATHERED_WRITES)?
 				"" : "no_");
+	fprintf(fp, "%scompression,", (ep->e_flags & NFSEXP_COMPRESSION)?
+		"" : "no");	/* ANFS */
+	fprintf(fp, "%sencryption,", (ep->e_flags & NFSEXP_ENCRYPTION)?
+		"" : "no"); 	/* ANFS */
 	fprintf(fp, "%shide,", (ep->e_flags & NFSEXP_NOHIDE)?
 				"no" : "");
 	fprintf(fp, "%scrossmnt,", (ep->e_flags & NFSEXP_CROSSMOUNT)?
@@ -531,6 +535,17 @@ parseopts(char *cp, struct exportent *ep, int warn, int *had_subtree_opt_ptr)
 			setflags(NFSEXP_GATHERED_WRITES, active, ep);
 		else if (!strcmp(opt, "no_wdelay"))
 			clearflags(NFSEXP_GATHERED_WRITES, active, ep);
+
+		/* ANFS */
+		else if (!strcmp(opt, "nocompression"))
+			setflags(NFSEXP_COMPRESSION, active, ep);
+		else if (!strcmp(opt, "compression"))
+			clearflags(NFSEXP_COMPRESSION, active, ep);
+		else if (!strcmp(opt, "noencryption"))
+			setflags(NfSEXP_ENCRYPTION, active, ep);
+		else if (!strcmp(opt, "encryption"))
+			clearflags(NFSEXP_ENCRYPTION, active, ep);
+
 		else if (strcmp(opt, "root_squash") == 0)
 			setflags(NFSEXP_ROOTSQUASH, active, ep);
 		else if (!strcmp(opt, "no_root_squash"))
